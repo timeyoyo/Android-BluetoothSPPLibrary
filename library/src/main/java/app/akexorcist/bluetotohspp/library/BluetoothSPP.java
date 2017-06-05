@@ -367,8 +367,10 @@ public class BluetoothSPP {
 
             setBluetoothConnectionListener(bcl);
             c = 0;
-            if(mAutoConnectionListener != null)
-                mAutoConnectionListener.onNewConnection(arr_name[c], arr_address[c]);
+            if(mAutoConnectionListener != null&&arr_name.length>0&&arr_address.length>0){
+                Log.e("hc","### arr_name ### size="+arr_name.length);
+                Log.e("hc","### arr_address ### size="+arr_address.length);
+                mAutoConnectionListener.onNewConnection(arr_name[c], arr_address[c]);}
             if(arr_filter_address.size() > 0) 
                 connect(arr_filter_address.get(c));
             else 
